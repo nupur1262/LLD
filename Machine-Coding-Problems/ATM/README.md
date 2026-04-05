@@ -1,9 +1,5 @@
 # 🏧 ATM System — Low Level Design
 
-## 📋 Quick Revision (5-Minute Rule)
-
-> **When revising, just read THIS section + glance at the UML diagram below. Only open `.java` files if you forget a specific implementation detail.**
-
 ### Design Patterns Used
 
 | Pattern | Where | Why |
