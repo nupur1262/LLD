@@ -28,12 +28,7 @@ Idle → [insertCard] → InsertedCard → [authenticatePin] → Authenticated �
 
 ## 🏗️ UML Class Diagram
 
-> The Excalidraw source file (`ATM.excalidraw`) is included in this repo. You can open it at [excalidraw.com](https://excalidraw.com) for editing.
-> 
-> *(Note: Export your diagram from Excalidraw as `ATM.png` or `ATM.svg` into this folder, and it will appear below)*
-
 ![ATM UML Class Diagram](./ATM.png)
-<!-- If you exported as SVG, change the above line to: ![ATM UML Class Diagram](./ATM.svg) -->
 
 ---
 
@@ -123,13 +118,3 @@ ATM/
 ```
 
 ---
-
-## 🔄 Revision Checklist
-
-Use this when revising. If you can answer these from memory, you're good:
-
-- [ ] What are the 4 states in the ATM? What transitions between them?
-- [ ] Why use State Pattern instead of a giant switch-case?
-- [ ] How do you add a new transaction type without modifying existing code?
-- [ ] Which methods are `synchronized` and why?
-- [ ] What does `BaseState` do and why is it useful?
