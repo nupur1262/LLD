@@ -1,7 +1,5 @@
 # 03 — Concurrency and Multithreading
 
-> **Purpose of this file:** Understand everything about concurrency that shows up in SDE-2 interviews — thread safety, synchronisation, locks, common patterns, and how to apply them in LLD problems. Every concept has a bad example, a good example, and a signal for when you need it.
-
 ---
 
 ## Table of Contents
@@ -27,9 +25,9 @@
 
 ---
 
-## 1. Why Concurrency Matters for SDE-2
+## 1. Why Concurrency Matters
 
-At SDE-1 level, you write code that works. At SDE-2, you write code that works **under load, with multiple users hitting it simultaneously.**
+We should write code that works **under load, with multiple users hitting it simultaneously.**
 
 Almost every LLD system you design has concurrency implications:
 
@@ -38,14 +36,12 @@ Almost every LLD system you design has concurrency implications:
 - Multiple threads updating a shared cache
 - Ride-sharing matching a driver to two riders at once
 
-If you design the Parking Lot with no thread safety, two cars could get the same slot. If you design the bank account with no synchronisation, a deposit and withdrawal running simultaneously could corrupt the balance.
-
-**What interviewers test at SDE-2:**
-- Do you recognise when shared state is a problem?
-- Do you know the tools: `synchronized`, `Lock`, `volatile`, `AtomicInteger`, concurrent collections?
-- Can you reason about deadlocks and prevent them?
-- Do you know the Executor framework?
-- Can you apply thread safety to an LLD design without making it a bottleneck?
+**What I should cover:**
+- Do I recognise when shared state is a problem?
+- Do I know the tools: `synchronized`, `Lock`, `volatile`, `AtomicInteger`, concurrent collections?
+- Can I reason about deadlocks and prevent them?
+- Do I know the Executor framework?
+- Can I apply thread safety to an LLD design without making it a bottleneck?
 
 ---
 
@@ -60,10 +56,6 @@ Concurrency problems happen when:
 2. At least one thread **writes** to it (mutable)
 3. The access is **not coordinated** (no synchronisation)
 
-Remove any one of these three and the problem disappears:
-- No sharing → thread-local data, no problem
-- No mutation → immutable objects, no problem
-- No coordination issue → proper synchronisation, no problem
 
 ### The three things that can go wrong
 
@@ -94,7 +86,7 @@ new MyThread().start();
 Thread t = new Thread(() -> System.out.println("Lambda runnable"));
 t.start();
 
-// Way 3: Use ExecutorService (best for production — see section 12)
+// Way 3: Use ExecutorService
 ExecutorService executor = Executors.newFixedThreadPool(4);
 executor.submit(() -> System.out.println("Submitted to pool"));
 ```
